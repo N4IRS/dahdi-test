@@ -1,3 +1,7 @@
+ifeq (1,$(shell fgrep -q 'Raspbian' /etc/os-release 2>/dev/null && echo 1))
+undefine CONFIG_PCI
+endif
+
 obj-$(DAHDI_BUILD_ALL)$(CONFIG_DAHDI)			+= dahdi.o
 obj-$(DAHDI_BUILD_ALL)$(CONFIG_DAHDI_DUMMY)		+= dahdi_dummy.o
 obj-$(DAHDI_BUILD_ALL)$(CONFIG_DAHDI_DYNAMIC)		+= dahdi_dynamic.o
